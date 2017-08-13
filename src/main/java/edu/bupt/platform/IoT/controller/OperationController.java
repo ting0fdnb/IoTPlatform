@@ -26,10 +26,15 @@ public class OperationController extends BaseController {
 	public IoTResult sendMessage() {
 		String resMessage = "verify message sccess";
 		
+		Boolean ver = operationService.verifyMessage();
+		
+		if(ver) {
+			String save = operationService.saveMessage();
+			return new IoTResult(0,"", save);
+		}
 		
 		
-		
-		return new IoTResult(0,"",resMessage);
+		return new IoTResult(1,"verify failed", null);
 	}
 	
 	

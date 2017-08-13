@@ -12,4 +12,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class OperationService extends BaseService {
 
+	//进行区块的信息验证
+	public Boolean verifyMessage() {
+		return true;
+	}
+
+	//将区块中信息在平台中保存
+	public String saveMessage() {
+		return "saveMessage success!";
+	}
+
 }
