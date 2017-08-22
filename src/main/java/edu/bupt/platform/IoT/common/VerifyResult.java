@@ -4,11 +4,11 @@ package edu.bupt.platform.IoT.common;
 * @author:mc 
 * @Email:983771387@qq.com
 * @version V1.0.0 
-* @createTime：2017年8月11日 下午6:31:02
-* @introduction: 平台返回给前端的结果类型
+* @createTime：2017年8月17日 下午8:07:46
+* @introduction: 区块链验证的返回结果类型
 */
 
-public class IoTResult {
+public class VerifyResult {
 	
 	private int code;
 	
@@ -16,11 +16,11 @@ public class IoTResult {
 	
 	private Object result;
 	
-	public IoTResult() {
+	public VerifyResult() {
 		super();
 	}
 
-	public IoTResult(int code, String msg, Object result) {
+	public VerifyResult(int code, String msg, Object result) {
 		super();
 		this.code = code;
 		this.msg = msg;
@@ -53,7 +53,7 @@ public class IoTResult {
 
 	@Override
 	public String toString() {
-		return "IoTResult [code=" + code + ", msg=" + msg + ", result=" + result + "]";
+		return "VerifyResult [code=" + code + ", msg=" + msg + ", result=" + result + "]";
 	}
 
 }
