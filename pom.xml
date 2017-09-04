@@ -8,7 +8,7 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <properties>
-        <java.version>1.7</java.version>
+        <java.version>1.8</java.version>
     </properties>
     
     <!-- Inherit defaults from Spring Boot -->
@@ -40,5 +40,27 @@
 		    <artifactId>log4j</artifactId>  
 		    <version>1.2.16</version>  
 		</dependency>
+		
+		<!-- Add Web3j -->
+		<dependency>
+		  <groupId>org.web3j</groupId>
+		  <artifactId>core</artifactId>
+		  <version>2.3.0</version>
+		</dependency>
     </dependencies>
+    
+    <!-- 配置maven版本及工程编译jdk版本以及目标项目的jdk编译版本 -->
+    <build>
+	    <plugins>
+	      <plugin>
+	        <artifactId>maven-compiler-plugin</artifactId>
+	        <version>3.1</version>
+	        <configuration>
+	          <!-- Neo4j Procedures require Java 8 -->
+	          <source>1.8</source>
+	          <target>1.8</target>
+	        </configuration>
+	      </plugin>
+	    </plugins>
+	</build>
 </project>

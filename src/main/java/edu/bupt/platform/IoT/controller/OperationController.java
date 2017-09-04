@@ -52,7 +52,6 @@ public class OperationController extends BaseController {
 			@RequestParam(required = false) String picUrl, @RequestParam(required = false) String domain) {
 
 		String signMessage = getSignMessage(deviceName, typeCode, manufacturer, deviceCode, description, picUrl, domain);
-		
 		VerifyResult ver = operationService.verifySignUpMessage(signMessage);
 		
 		if(ver.getCode() == 0) {
