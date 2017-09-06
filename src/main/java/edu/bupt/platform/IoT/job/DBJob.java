@@ -1,5 +1,7 @@
 package edu.bupt.platform.IoT.job;
 
+import java.util.Map;
+
 import org.springframework.stereotype.Service;
 
 import edu.bupt.platform.IoT.common.VerifyResult;
@@ -15,13 +17,17 @@ import edu.bupt.platform.IoT.common.VerifyResult;
 @Service
 public class DBJob extends BaseJob {
 	
-	public Boolean SaveSignUpMessage(VerifyResult mes) {
-		
-		if(mes.getCode() != 0) {
-			return false;
-		}
+	public Boolean SaveSignUpMessage(String mes) {
 		
 		//TODO 存储信息
+		return true;
+	}
+	
+	public Boolean VerifySignUpMessage(String mes) {
+		return true;
+	}
+	
+	public Boolean SaveSendedMessage(Map<String, String> hash) {
 		return true;
 	}
 }

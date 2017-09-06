@@ -34,11 +34,10 @@ public class OperationController extends BaseController {
 	public IoTResult sendMessage(HttpServletRequest request,
 			@RequestParam(required = false, defaultValue = "") String message) {
 		VerifyResult ver = operationService.verifyMessage(message);
-		if (ver.getCode() == 0) {
-			String save = operationService.saveMessage(ver);
-			return new IoTResult(0, "", save);
+		if (ver.getCode() != 0) {
+			return new IoTResult(1, "verify failed", message);
 		}
-		return new IoTResult(1, "verify failed", null);
+		return new IoTResult(0, "", null);
 	}
 
 	/*
@@ -54,11 +53,12 @@ public class OperationController extends BaseController {
 		String signMessage = getSignMessage(deviceName, typeCode, manufacturer, deviceCode, description, picUrl, domain);
 		VerifyResult ver = operationService.verifySignUpMessage(signMessage);
 		
-		if(ver.getCode() == 0) {
-			String save = operationService.saveSignUpMessage(ver);
-			return new IoTResult(0, "", save);
+		if(ver.getCode() != 0) {
+			return new IoTResult(1, "verify failed", null);
 		}
-		return new IoTResult(1, "verify failed", null);
+		
+		String save = operationService.saveSignUpMessage(ver);
+		return new IoTResult(0, "", save);
 	}
 	
 	private static String getSignMessage(String deviceName, String typeCode, String manufacturer, String deviceCode, String description, String picUrl, String domain){

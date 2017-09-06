@@ -8,6 +8,7 @@ import java.math.BigInteger;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Service;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.DefaultBlockParameterNumber;
@@ -22,13 +23,14 @@ import org.web3j.protocol.core.methods.response.EthTransaction;
 import org.web3j.protocol.core.methods.response.Web3ClientVersion;
 import org.web3j.protocol.http.HttpService;
 
+@Service
 public class BlockchainAPI {
 	protected final Logger logger = Logger.getLogger(this.getClass());
 	
 	static String baseUrl = "http://localhost:8545/";
 	static Web3j web3 = Web3j.build(new HttpService(baseUrl));
 	
-	public static String SendTransaction(String data) throws IOException {
+	public String SendTransaction(String data) throws IOException {
 		String createAccount = "0x3b9a7c79514a90f8b7e632e4da11efb04daad166";
 		Transaction transaction = new Transaction(createAccount, new BigInteger("16000"),
 				new BigInteger("20000000000"), new BigInteger("4300000"), null, new BigInteger("0"), data);
@@ -36,7 +38,7 @@ public class BlockchainAPI {
 		return trans.getTransactionHash();
 	}
 	
-	public static String getTransactionDateByHash (String Hash) throws IOException {
+	public String getTransactionDateByHash (String Hash) throws IOException {
 		if (Hash != null) {
 			EthTransaction ethTransaction = web3.ethGetTransactionByHash(Hash).send();
 			return ethTransaction.getResult().getInput();

@@ -26,43 +26,47 @@ public class OperationService extends BaseService {
 	
 	// 进行区块的信息验证
 	public VerifyResult verifyMessage(String msg) {
-		//TODO 完成信息验证
-		return new VerifyResult(0, "", null);
+		
+		VerifyResult vr = verifyJob.verifySendMessage(msg);
+				
+		if(vr.getCode() != 0) {
+			return new VerifyResult(1, "验证失败", msg);
+		}
+		
+		return new VerifyResult(0, "", msg);
 	}
 	
 
-	// 将区块中信息在平台中保存
-	public String saveMessage(VerifyResult mes) {
-		//TODO 完成信息存储
-		if(dbJob.SaveSignUpMessage(mes)) {
-			return "saveMessage success!";
-		}
-		return "saveMessage failed!";
-	}
+//	// 将区块中信息在平台中保存
+//	public String saveMessage(VerifyResult mes) {
+//		//TODO 完成信息存储
+//		if(dbJob.SaveSignUpMessage(mes)) {
+//			return "saveMessage success!";
+//		}
+//		return "saveMessage failed!";
+//	}
 
 	//进行设备注册的信息验证
 	public VerifyResult verifySignUpMessage(String signMessage) {
-		// TODO 完成注册信息的验证
-		
-		//进行本地数据库验证
-		
-		
 		
 		//进行验证操作的节点共识，并触发其他节点进行本地验证
 		VerifyResult vr = verifyJob.verifySignUpMessage(signMessage);
-		
-		
-		//收集其他节点的共识结果，并且统计验证结果
-		if(vr.getCode() == 0 && true) {
-			return new VerifyResult(0, "", null);
+	
+		if(vr.getCode() != 0) {
+			return new VerifyResult(1, "验证失败", signMessage);
 		}
 		
-		return new VerifyResult(1, "验证失败", null);
+		return new VerifyResult(0, "", signMessage);
 	}
 
 	//存储设备的注册信息
 	public String saveSignUpMessage(VerifyResult ver) {
-		// TODO 对设备注册信息进行本地数据库存储
+		
+		//TODO 存储数据库
+		if(!dbJob.SaveSignUpMessage(ver.getResult().toString())) {
+			return "saveSignUpMessage failed";
+		}
+		
 		return "saveSignUpMessage success!";
 	}
 
