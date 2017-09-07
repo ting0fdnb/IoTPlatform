@@ -23,7 +23,6 @@ public class OperationService extends BaseService {
 	@Autowired
 	VerifyJob verifyJob;
 	
-	
 	// 进行区块的信息验证
 	public VerifyResult verifyMessage(String msg) {
 		

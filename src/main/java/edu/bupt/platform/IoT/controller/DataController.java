@@ -1,9 +1,11 @@
 package edu.bupt.platform.IoT.controller;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.bupt.platform.IoT.common.Authority;
@@ -36,7 +38,8 @@ public class DataController extends BaseController {
 	 * show device info
 	 */
 	@RequestMapping({"/device/{id:\\d+}" })
-	public IoTResult showDeviceInfo(RequestMapping request, @PathVariable Long id) {
+	@ResponseBody
+	public IoTResult showDeviceInfo(HttpServletRequest request, @PathVariable("id") Long id) {
 		
 		VerifyResult ver = authorityService.verifyAuthority(Authority.a1);
 		if (ver.getCode() == 0) {

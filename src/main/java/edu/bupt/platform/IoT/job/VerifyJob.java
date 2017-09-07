@@ -10,6 +10,7 @@ import edu.bupt.platform.IoT.api.BlockchainAPI;
 import edu.bupt.platform.IoT.common.VerifyResult;
 import edu.bupt.platform.IoT.common.util.HexTransformUtil;
 import edu.bupt.platform.IoT.common.util.MessageHashUtil;
+import edu.bupt.platform.IoT.data.mapper.AccessDeviceMapper;
 
 /**
 * @author:mc 
@@ -27,6 +28,9 @@ public class VerifyJob extends BaseJob {
 	
 	@Autowired
 	DBJob dbJob;
+	
+	@Autowired
+	AccessDeviceMapper accessDeviceMapper;
 	
 	public VerifyResult verifySendMessage(String sendMessage) {
 		
@@ -55,7 +59,7 @@ public class VerifyJob extends BaseJob {
 	
 	//TODO check the order
 	public VerifyResult verifySignUpMessage(String signMessage) {
-		String registerHash = "";
+		String registerHash = "0x40228728e195ff239cb10260fd4f2ba36f2bc585e3a6758a8489b13d4e395c09";
 		String hexString = null;
 		try {
 			hexString = blockchainAPI.getTransactionDateByHash(registerHash);
@@ -96,11 +100,18 @@ public class VerifyJob extends BaseJob {
 	}
 
 	private boolean verifyRegister(String signMessage, String registerTable) {
-		// TODO Auto-generated method stub
-		if(registerTable.contains(signMessage)) {
-			return true;
-		}
-		return false;
+		//TODO 新的逻辑
+		
+		String[] attrs = signMessage.split("&&");
+		
+		String deviceName = attrs[0];
+		String typeCode = attrs[1];
+		String manufacturer = attrs[2];
+		String deviceCode = attrs[3];
+		
+		Integer count = accessDeviceMapper.existAccessRecord(deviceName, typeCode, manufacturer, deviceCode);
+		
+		return count > 0;
 	}
 
 }

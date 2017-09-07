@@ -31,7 +31,7 @@ public class BlockchainAPI {
 	static Web3j web3 = Web3j.build(new HttpService(baseUrl));
 	
 	public String SendTransaction(String data) throws IOException {
-		String createAccount = "0x3b9a7c79514a90f8b7e632e4da11efb04daad166";
+		String createAccount = "0xde41f23e334245b9e28d035e0fb7f700ca332d36";
 		Transaction transaction = new Transaction(createAccount, new BigInteger("16000"),
 				new BigInteger("20000000000"), new BigInteger("4300000"), null, new BigInteger("0"), data);
 		EthSendTransaction trans = web3.ethSendTransaction(transaction).send();
@@ -41,7 +41,7 @@ public class BlockchainAPI {
 	public String getTransactionDateByHash (String Hash) throws IOException {
 		if (Hash != null) {
 			EthTransaction ethTransaction = web3.ethGetTransactionByHash(Hash).send();
-			return ethTransaction.getResult().getInput();
+			return ethTransaction.getResult()==null?null:ethTransaction.getResult().getInput();
 		}
 		return null;
 	}

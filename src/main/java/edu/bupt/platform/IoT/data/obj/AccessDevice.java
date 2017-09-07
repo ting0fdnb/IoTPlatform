@@ -6,11 +6,11 @@ import java.sql.Date;
 * @author:mc 
 * @Email:983771387@qq.com
 * @version: V1.0.0 
-* @createTime：2017年9月7日 上午12:23:01
+* @createTime：2017年8月17日 下午9:34:48
 * @introduction:
 */
 
-public class Device {
+public class AccessDevice {
 
 	Integer id;
 	
@@ -20,7 +20,7 @@ public class Device {
 	
 	String company;
 	
-	String deviceCode;
+	String device_code;
 	
 	String description;
 	
@@ -64,12 +64,12 @@ public class Device {
 		this.company = company;
 	}
 
-	public String getDeviceCode() {
-		return deviceCode;
+	public String getDevice_code() {
+		return device_code;
 	}
 
-	public void setDeviceCode(String deviceCode) {
-		this.deviceCode = deviceCode;
+	public void setDevice_code(String device_code) {
+		this.device_code = device_code;
 	}
 
 	public String getDescription() {
@@ -114,9 +114,9 @@ public class Device {
 
 	@Override
 	public String toString() {
-		return "Device [id=" + id + ", deviceName=" + deviceName + ", typeId=" + typeId + ", company=" + company
-				+ ", deviceCode=" + deviceCode + ", description=" + description + ", picUrl=" + picUrl + ", domain="
+		return "AccessDevice [id=" + id + ", deviceName=" + deviceName + ", typeId=" + typeId + ", company=" + company
+				+ ", device_code=" + device_code + ", description=" + description + ", picUrl=" + picUrl + ", domain="
 				+ domain + ", registerTime=" + registerTime + ", updateTime=" + updateTime + "]";
 	}
-
+	
 }

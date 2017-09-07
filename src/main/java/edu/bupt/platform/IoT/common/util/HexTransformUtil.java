@@ -27,6 +27,7 @@ public class HexTransformUtil {
 	}
 
 	public static String decode(String bytes) {
+		if(bytes == null) return null;
 		bytes = bytes.substring(2);
 		ByteArrayOutputStream baos = new ByteArrayOutputStream(bytes.length() / 2);
 		// 将每2位16进制整数组装成一个字节

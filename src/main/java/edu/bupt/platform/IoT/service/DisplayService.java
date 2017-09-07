@@ -1,7 +1,9 @@
 package edu.bupt.platform.IoT.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import edu.bupt.platform.IoT.data.mapper.DeviceMapper;
 import edu.bupt.platform.IoT.data.obj.Device;
 import edu.bupt.platform.IoT.data.obj.HistoryInfo;
 import edu.bupt.platform.IoT.data.obj.Statistics;
@@ -17,9 +19,12 @@ import edu.bupt.platform.IoT.data.obj.Statistics;
 @Service
 public class DisplayService extends BaseService {
 
+	@Autowired
+	DeviceMapper deviceMapper;
+	
 	public Device getDetailBydeviceId(Long id) {
 		// TODO Auto-generated method stub
-		return null;
+		return deviceMapper.getById(id.intValue());
 	}
 
 	public HistoryInfo getHistoryBydeviceId(Long id) {
