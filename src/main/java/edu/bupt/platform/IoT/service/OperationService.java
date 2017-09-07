@@ -57,6 +57,19 @@ public class OperationService extends BaseService {
 		
 		return new VerifyResult(0, "", signMessage);
 	}
+	
+	//进行设备注册的信息验证
+	public VerifyResult verifyLoginMessage(String deviceName, String deviceCode) {
+		
+		//进行验证操作的节点共识，并触发其他节点进行本地验证
+		VerifyResult vr = verifyJob.verifyLoginMessage(deviceName, deviceCode);
+	
+		if(vr.getCode() != 0) {
+			return new VerifyResult(1, "验证失败", deviceName);
+		}
+		
+		return vr;
+	}
 
 	//存储设备的注册信息
 	public String saveSignUpMessage(VerifyResult ver) {

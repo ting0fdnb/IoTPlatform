@@ -1,0 +1,48 @@
+﻿@charset "utf-8";
+.header .logo{
+	background:url(../img/credit-logo.jpg) no-repeat;
+	width: 330px;
+	height: 40px;
+}
+ * { padding: 0; margin: 0; font-family: "Microsoft Yahei"; }
+    li { list-style: none }
+    h1, h2, h3, h4, h5, h6, p, span, li { cursor: default; }
+    a { cursor: pointer;; text-decoration: none; outline: medium none; color: #222 }
+    a:hover { text-decoration: none; color: #529ff2 }
+    .areas { width: 1200px; background: #fff; margin: 0 auto; overflow: hidden }
+    .nav { border-bottom: 1px solid #ebebeb; line-height: 55px; width: 860px; }
+    .nav a { color: #777; font-size: 14px; }
+    .nav .arrow { background: url(./arrow.png) no-repeat center; padding: 0 10px; }
+    .nav a:last-child { color: #aaa; }
+    .intro-box { float: left; width: 820px; padding-right: 80px; }
+    .title { font-size: 36px; line-height: 100px; color: #fc6237; }
+    .date { display: block; color: #aaa; font-size: 14px; margin-bottom: 20px; }
+    .intro li { line-height: 25px; color: #aaa; display: inline-block; width: 400px; font-size: 14px; }
+    .intro li span { color: #222; margin-left: 10px; }
+    .detail { margin-top: 25px; line-height: 32px; font-size: 16px; color: #333; margin-bottom: 25px; text-align: justify; }
+    .card { width: 100%; text-align: center; margin-bottom: 27px; }
+    .card img { margin-left: 5px; width: 650px; height: 240px; }
+    .rel-card h3 { margin-left: 18px; line-height: 68px; font-size: 20px; color: #222; border-bottom: 1px solid #f4f4f4 }
+    .card-list-1 { margin-top: 15px }
+    .card-list-1 li { float: left; margin: 15px 10px; max-width:185px;}
+    .card-list-1 li img{width:184px;height:118px;}
+    .card-list-1 li .card-title { margin-top: 10px; line-height: 28px; }
+    .card-list-1 li .card-title a { font-size: 16px; color: #222; }
+    .card-list-1 li .card-sp { line-height: 15px }
+    .card-list-1 li .card-sp {height:32px;overflow:hidden;}
+    .card-list-1 li .card-sp a { font-size: 12px; color: #777; line-height: 15px;}
+    .related { float: right; }
+    .related-1 { background: #f9f9f9; width: 260px; padding: 5px 20px; margin-bottom: 25px }
+    .related-1 h3 { line-height: 55px; }
+    .sp-list li { position:relative;padding: 15px 0; overflow: hidden; }
+    .sp-list li img { width: 60px; height: 60px; float: left; }
+    .sp-list li .title {display:inline-block;position:absolute;top:50%;transform:translateY(-50%);max-width:180px; margin-left: 15px; display: inline-block; line-height: 20px; float: left; color: #222; font-size: 15px; }
+    .hot-cards-list { margin-top: 10px }
+    .hot-cards-list li { margin-bottom: 15px; }
+    .hot-cards-list p { text-align: center; line-height: 50px; }
+     .hot-cards-list img{width:240px;height:150px;}
+    .hot-cards-list p a { font-size: 16px; color: #777; }
+    .footer { font-size: 12px; background-color: #f4f4f4; padding: 25px 0; }
+    .footer .area { background-color: #f4f4f4; }
+    .footer li { line-height: 20px; color: #aaaaaa; text-align: center; }
+    .footer a { margin: 0 10px; }

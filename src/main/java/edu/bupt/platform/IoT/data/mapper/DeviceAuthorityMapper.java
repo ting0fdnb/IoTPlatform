@@ -21,20 +21,14 @@ import edu.bupt.platform.IoT.data.obj.Device;
 
 @Mapper
 @Repository
-public interface DeviceMapper {
+public interface DeviceAuthorityMapper {
 	
-	String tableName="device";
+	String tableName="device_authority";
 	
 	@Select("select * from " + tableName)
     List<Device> getAll();
 
-    @Select("select * from " + tableName + " where device_name = #{name}")
-    Device getByName(String name);
+    @Select("select `authority_id` from " + tableName + " where device_id = #{deviceId}")
+    List<Integer> getAuthorityIdByDeviceId(@Param("deviceId") Integer deviceId);
     
-    @Select("select * from " + tableName + " where device_name = #{deviceName} AND device_code=#{deviceCode}")
-    Device getByNameAndDeviceCode(@Param("deviceName")String deviceName, @Param("deviceCode") String deviceCode);
-    
-    @Select("select * from " + tableName + " where id = #{id}")
-    Device getById(Integer id);
-
 }

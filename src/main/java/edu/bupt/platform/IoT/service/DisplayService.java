@@ -27,7 +27,7 @@ public class DisplayService extends BaseService {
 		return deviceMapper.getById(id.intValue());
 	}
 
-	public HistoryInfo getHistoryBydeviceId(Long id) {
+	public HistoryInfo getHistoryBydeviceId(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

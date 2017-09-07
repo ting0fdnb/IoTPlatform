@@ -1,0 +1,10 @@
+geth --datadir "%cd%\chain" init piccgenesis.json
+
+
+
+geth --identity "PICCetherum" --rpc --rpcaddr "127.0.0.1" --rpccorsdomain "*" --rpcport "8545" --datadir "%cd%\chain" --port "30303"  --rpcapi "db,eth,net,web3,personal,admin,miner" --networkid 95518 console
+
+
+geth --identity "PICCetherum" --rpc --rpcaddr "10.108.218.180" --rpccorsdomain "*" --rpcport "8545" --datadir "%cd%\chain" --port "30303"  --rpcapi "db,eth,net,web3,personal,admin,miner" --networkid 95518 console
+
+geth --identity "PICCetherum" --rpc --rpcaddr "10.108.218.180" --rpccorsdomain "*" --rpcport "8666" --datadir "%cd%\chain" --port "30303"  --rpcapi "db,eth,net,web3,personal,admin,miner" --networkid 95518 console

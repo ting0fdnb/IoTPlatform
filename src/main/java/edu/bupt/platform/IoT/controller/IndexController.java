@@ -3,9 +3,10 @@ package edu.bupt.platform.IoT.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 
 /**
@@ -15,21 +16,31 @@ import org.springframework.web.bind.annotation.RestController;
 * @createTime：2017年7月23日 下午9:28:28
 */
 
-@RestController
+@Controller
 public class IndexController extends BaseController{
 
 	
 	@RequestMapping("/")
-	@ResponseBody
 	public String hello() {
-		logger.info("Hello World logger test");
-		return "Hello World";
+		return "index";
 	}
 	
 	@RequestMapping("/json")
+	@ResponseBody
 	public Map<String, Object> json() {
 		Map<String, Object> res = new HashMap<String, Object>();
 		res.put("result", "true");
 		return res;
 	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login() {
+		return "login";
+	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String index() {
+		return "index";
+	}
+	
 }
